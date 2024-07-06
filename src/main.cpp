@@ -17,7 +17,7 @@ std::string playerName;
 // outfile
 std::string fileName = "playerData.bin";
 
-// obstacles
+// obstacle colors
 sf::Color wallColor(69, 123, 157);
 sf::Color exitColor(168, 218, 220);
 
@@ -56,7 +56,11 @@ int main() {
   window.setFramerateLimit(60);
 
   sf::Clock clock;
-  sf::Clock moveClock;  // clock to controlplayer movement speed
+  sf::Clock moveClock;       // clock to control player movement speed
+  sf::Clock countdownClock;  // clock for the countdown timer
+
+  // set countdown duration to 1 minute
+  sf::Time countdownDuration = sf::seconds(60);
 
   mapRandomizer(worldMap);
 
@@ -141,10 +145,33 @@ int main() {
           mapCountText.getPosition().x - textRect.width - 5,
           mapCountText.getPosition().y - 5);  // position based on padding
 
-      // background box and then the text
+      // countdown timer display
+      sf::Time elapsedTime = countdownClock.getElapsedTime();
+      sf::Time remainingTime = countdownDuration - elapsedTime;
+      if (remainingTime.asSeconds() <= 0) {
+        endScreen = true;  // trigger end screen if time runs out
+      }
+
+      sf::Text countdownText;
+      countdownText.setFont(font);
+      countdownText.setCharacterSize(18);
+      countdownText.setFillColor(playerColor);
+      countdownText.setStyle(sf::Text::Bold);
+
+      int seconds = static_cast<int>(remainingTime.asSeconds());
+      countdownText.setString("Time: " + std::to_string(seconds) + "s");
+
+      sf::FloatRect countdownRect = countdownText.getLocalBounds();
+      countdownText.setOrigin(countdownRect.width, 0);  // origin to top-right
+      countdownText.setPosition(window.getSize().x - 5,
+                                25);  // below map count display
+
+      //draw background box and text
       window.draw(backgroundBox);
       window.draw(mapCountText);
+      window.draw(countdownText);
       window.display();
+
       if (endScreen) {
         // save player score
         savePlayerScore(playerName, mapCount, fileName);
