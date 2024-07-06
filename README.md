@@ -20,10 +20,10 @@ Features:
 
 Controls:
 
-Use the arrow keys to move your player through the maze.
-Press `Enter` to start the game from the start screen.
-Press `S` to view the end screen and check your score.
-Press `Escape` to exit the game.
+- Use the arrow keys to move your player through the maze.
+- Press `Enter` to start the game from the start screen.
+- Press `S` to view the end screen and check your score.
+- Press `Escape` to exit the game.
 
 
 ## Build
