@@ -1,5 +1,8 @@
 # MazeRace (Final Project for CIS 25)
 
+
+![game play gif](final_slides/gamePlay.gif)
+
 Race against the clock to escape as many mazes as you can before time runs out. Challenge yourself to beat your own high score and see if you can rank among the top 3 players!
 
 Gameplay:
