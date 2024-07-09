@@ -1,7 +1,5 @@
 #include "config.h"
 
-
-
 void readPlayerScore(std::vector<PlayerData>& players,
                      const std::string& fileName) {
   std::ifstream inFile(fileName, std::ios::binary);

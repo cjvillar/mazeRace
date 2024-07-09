@@ -14,7 +14,7 @@ void mapRandomizer(int worldMap[][mapHeight]) {
     }
   }
 
-  int visitedTiles = 0;
+  //int visitedTiles = 0;
 
   std::stack<std::pair<int, int>> vtStack;
 
@@ -71,8 +71,8 @@ void mapRandomizer(int worldMap[][mapHeight]) {
           vtStack.push(std::make_pair(x - 2, y));
           lastVisitedTile = std::make_pair(x - 2, y);
           break;
-      }
-      ++visitedTiles;
+      }  
+      //++visitedTiles;
     } else {
       // if no neighbors, backtrack
       vtStack.pop();

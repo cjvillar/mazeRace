@@ -13,7 +13,7 @@ add_executable(mazeRace
     src/mazeMap.cpp
     src/savePlayerScore.cpp
     src/readPlayerScore.cpp
-    src/endScreen.cpp
+    src/highScores.cpp
     src/main.cpp 
 )
 
@@ -24,7 +24,7 @@ target_include_directories(mazeRace PRIVATE dependencies/include)
 file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
 
 # link SFML libraries based on the platform
-if(WIN32)
+if(WIN32) #compile on windows ... TBD
     set(SFML_LIB_DIR "${CMAKE_SOURCE_DIR}/dependencies/lib")
 
     find_library(SFML_AUDIO sfml-audio PATHS ${SFML_LIB_DIR})

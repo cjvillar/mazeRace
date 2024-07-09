@@ -24,4 +24,4 @@
 #include "startScreen.h"
 #include "savePlayerScore.h"
 #include "readPlayerScore.h"
-#include "endScreen.h"
+#include "highScores.h"

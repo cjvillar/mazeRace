@@ -42,7 +42,6 @@ void mazeMap(sf::RenderWindow &window, int playerPosX, int playerPosY,
   drawPlayer(window, playerPosX, playerPosY, tileSizeX, tileSizeY, offsetX,
             offsetY);
 
-
   // draw grid lines
   for (int y = 0; y <= mapHeight; y++) {
     sf::RectangleShape line(

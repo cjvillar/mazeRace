@@ -2,7 +2,7 @@
 
 bool exitMaze = false;
 bool startScreen = true;  // start screen flag
-bool endScreen = false;
+bool showScores = false;
 int mapCount = 0;
 
 int worldMap[mapWidth][mapHeight];
@@ -63,7 +63,7 @@ int main() {
   sf::Time countdownDuration = sf::seconds(60);
 
   mapRandomizer(worldMap);
-
+  
   while (window.isOpen()) {
     sf::Event event;
     while (window.pollEvent(event)) {
@@ -71,7 +71,7 @@ int main() {
       if (event.type == sf::Event::KeyPressed &&
           event.key.code == sf::Keyboard::Escape)
         window.close();
-      if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) endScreen = true;
+      if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) showScores = true;
       if (event.type == sf::Event::KeyPressed &&
           event.key.code == sf::Keyboard::Enter && !exitMaze) {
         // movement logic
@@ -113,7 +113,7 @@ int main() {
       window.clear(bgColor);
 
       mazeMap(window, playerPosX, playerPosY, width, height, exitTexture);
-
+  
       if (worldMap[playerPosY][playerPosX] == 2) {
         mapRandomizer(worldMap);
         mapCount++;
@@ -149,7 +149,7 @@ int main() {
       sf::Time elapsedTime = countdownClock.getElapsedTime();
       sf::Time remainingTime = countdownDuration - elapsedTime;
       if (remainingTime.asSeconds() <= 0) {
-        endScreen = true;  // trigger end screen if time runs out
+        showScores = true;  // trigger end screen if time runs out
       }
 
       sf::Text countdownText;
@@ -172,11 +172,11 @@ int main() {
       window.draw(countdownText);
       window.display();
 
-      if (endScreen) {
+      if (showScores) {
         // save player score
         savePlayerScore(playerName, mapCount, fileName);
-
-        RenderEndScreen(window, endScreen, bgColor, fileName);
+        //show high scores
+        highScores(window, showScores, bgColor, fileName);
       }
 
       if (exitMaze) {
@@ -185,5 +185,5 @@ int main() {
     }
   }
 
-  return EXIT_SUCCESS;
+ return EXIT_SUCCESS;
 }
