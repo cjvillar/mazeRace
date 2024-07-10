@@ -17,13 +17,10 @@ void mapRandomizer(int worldMap[][mapHeight]) {
   //int visitedTiles = 0;
 
   std::stack<std::pair<int, int>> vtStack;
-
   // init algorithm with the first tile (0, 0) aka player start origin
   vtStack.push(std::make_pair(0, 0));
   worldMap[0][0] = 0;
-
   srand(time(0));  // seed for random number generator
-
   std::pair<int, int> lastVisitedTile(0, 0);
 
   while (!vtStack.empty()) {
