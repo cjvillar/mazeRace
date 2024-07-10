@@ -15,7 +15,6 @@ void mapRandomizer(int worldMap[][mapHeight]) {
   }
 
   //int visitedTiles = 0;
-
   std::stack<std::pair<int, int>> vtStack;
 
   // init algorithm with the first tile (0, 0) aka player start origin
