@@ -63,7 +63,7 @@ int main() {
   sf::Time countdownDuration = sf::seconds(60);
 
   mapRandomizer(worldMap);
-  
+
   while (window.isOpen()) {
     sf::Event event;
     while (window.pollEvent(event)) {
@@ -113,7 +113,7 @@ int main() {
       window.clear(bgColor);
 
       mazeMap(window, playerPosX, playerPosY, width, height, exitTexture);
-  
+
       if (worldMap[playerPosY][playerPosX] == 2) {
         mapRandomizer(worldMap);
         mapCount++;
@@ -166,7 +166,7 @@ int main() {
       countdownText.setPosition(window.getSize().x - 5,
                                 25);  // below map count display
 
-      //draw background box and text
+      // draw background box and text
       window.draw(backgroundBox);
       window.draw(mapCountText);
       window.draw(countdownText);
@@ -175,7 +175,7 @@ int main() {
       if (showScores) {
         // save player score
         savePlayerScore(playerName, mapCount, fileName);
-        //show high scores
+        // show high scores
         highScores(window, showScores, bgColor, fileName);
       }
 
@@ -185,5 +185,5 @@ int main() {
     }
   }
 
- return EXIT_SUCCESS;
+  return EXIT_SUCCESS;
 }

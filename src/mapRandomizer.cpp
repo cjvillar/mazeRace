@@ -1,7 +1,6 @@
 /*
 resource: https://www.youtube.com/watch?v=Y37-gB83HKE
 back tracking algo.
-
  */
 
 #include "config.h"

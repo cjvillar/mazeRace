@@ -9,7 +9,7 @@ extern sf::Color gridLines;
 void mazeMap(sf::RenderWindow &window, int playerPosX, int playerPosY,
             int windowWidth, int windowHeight,
              sf::Texture exitTexture) {
-  float scaleTilesize = 1;  // tile size scale
+  float scaleTilesize = 1.0;  // tile size scale
   int tileSizeX = (windowWidth / mapWidth) * scaleTilesize;
   int tileSizeY = (windowHeight / mapHeight) * scaleTilesize;
 
