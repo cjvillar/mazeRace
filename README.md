@@ -30,7 +30,16 @@ Controls:
 
 
 ## Build
+You will need CMake (3.10 minimum) installed
+
+run shell script:
+```
+./buildScript.sh 
+```
+or
+
 ```bash
+cd mazeRace
 mkdir build
 cd build
 cmake ..
